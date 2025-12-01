@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { tss } from '../tss';
 import { useGetPokemons } from 'src/hooks/useGetPokemons';
 
@@ -9,7 +9,7 @@ export const PokemonListPage = () => {
   const navigate = useNavigate();
 
   const handlePokemonClick = (id: string) => {
-    navigate(`/pokemon/${id}`);
+    navigate(`pokemon/${id}`);
   };
 
   return (
@@ -30,6 +30,7 @@ export const PokemonListPage = () => {
           </li>
         ))}
       </ul>
+      <Outlet />
     </div>
   );
 };
@@ -37,14 +38,14 @@ export const PokemonListPage = () => {
 const useStyles = tss.create(({ theme }) => ({
   root: {
     color: theme.color.text.primary,
-    padding: '20px',
+    padding: '1.25rem',
   },
   list: {
     listStyle: 'none',
     padding: 0,
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '16px',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(12.5rem, 1fr))',
+    gap: '1rem',
   },
   listItem: {
     listStyle: 'none',
@@ -54,37 +55,37 @@ const useStyles = tss.create(({ theme }) => ({
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    padding: '16px',
+    padding: '1rem',
     border: 'none',
-    borderRadius: '12px',
+    borderRadius: '0.75rem',
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
     color: 'inherit',
     cursor: 'pointer',
     transition: 'transform 0.2s ease, box-shadow 0.2s ease',
     '&:hover': {
-      transform: 'translateY(-4px) scale(1.02)',
-      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+      transform: 'translateY(-0.25rem) scale(1.02)',
+      boxShadow: '0 0.5rem 1.5rem rgba(0, 0, 0, 0.3)',
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
     },
   },
   sprite: {
-    width: '120px',
-    height: '120px',
+    width: '7.5rem',
+    height: '7.5rem',
     objectFit: 'contain',
   },
   number: {
-    fontSize: '12px',
+    fontSize: '0.75rem',
     color: 'rgba(250, 250, 250, 0.6)',
-    marginTop: '8px',
+    marginTop: '0.5rem',
   },
   name: {
-    fontSize: '18px',
+    fontSize: '1.125rem',
     fontWeight: 600,
-    marginTop: '4px',
+    marginTop: '0.25rem',
   },
   types: {
-    fontSize: '14px',
+    fontSize: '0.875rem',
     color: 'rgba(250, 250, 250, 0.6)',
-    marginTop: '4px',
+    marginTop: '0.25rem',
   },
 }));
