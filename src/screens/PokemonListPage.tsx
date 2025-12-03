@@ -17,7 +17,7 @@ export const PokemonListPage = () => {
     return data.filter((pokemon) => pokemon.name?.toLowerCase().includes(lowerSearch));
   }, [data, searchTerm]);
 
-  const handlePokemonClick = (id: string) => {
+  const handlePokemonClick = (id: number) => {
     navigate(`pokemon/${id}`);
   };
 
@@ -61,7 +61,7 @@ export const PokemonListPage = () => {
       <div className={classes.searchContainer}>
         <input
           type="text"
-          placeholder="Search by name, number, or type..."
+          placeholder="Search by name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className={classes.searchInput}

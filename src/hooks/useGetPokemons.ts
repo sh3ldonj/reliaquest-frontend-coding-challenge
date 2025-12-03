@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import { useQuery } from '@apollo/client/react';
 
 export interface Pokemon {
-  id: string;
+  id: number;
   name: string;
   types?: string[];
   sprite?: string;
